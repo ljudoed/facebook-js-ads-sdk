@@ -7,8 +7,8 @@ describe('Api', function() {
   var campaignData = {name: 'SDK TEST - ' + now};
 
   before(function(done) {
-    adCampaign1 = new api.AdCampaign(campaignData, testData.accountId);
-    adCampaign2 = new api.AdCampaign(campaignData, testData.accountId);
+    adCampaign1 = new api.Campaign(campaignData, testData.accountId);
+    adCampaign2 = new api.Campaign(campaignData, testData.accountId);
     var promise1 = adCampaign1.create();
     var promise2 = adCampaign2.create();
     Promise.all([promise1, promise2])
@@ -29,7 +29,7 @@ describe('Api', function() {
   });
 
   it('reads multiple ids', function(done) {
-    api.readIds(api.AdCampaign, [adCampaign1.id, adCampaign2.id]).
+    api.readIds(api.Campaign, [adCampaign1.id, adCampaign2.id]).
       then(function(objects) {
         objects[0].name.should.be.eql(adCampaign1.name);
         objects[1].name.should.be.eql(adCampaign2.name);

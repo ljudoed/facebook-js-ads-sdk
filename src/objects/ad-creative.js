@@ -51,7 +51,7 @@
    */
   function AdCreative(api, initData, accountId) {
     var _this = new CrudObject(api, endpoint, fields, initData, accountId);
-    Archivable.call(_this, 'campaign_status');
+    Archivable.call(_this, 'status');
 
     /**
      * @param  {object}   params

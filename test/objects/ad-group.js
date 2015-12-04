@@ -5,7 +5,7 @@ if (typeof require === 'function') {
   chai.should();
 }
 
-describe('AdGroup', function() {
+describe('Ad', function() {
   'use strict';
 
   var token = 'a1b2c3d4e5';
@@ -14,12 +14,12 @@ describe('AdGroup', function() {
 
     it('exists in API instance', function() {
       var api = new FacebookAdsApi(token);
-      api.AdGroup.should.be.a('function');
+      api.Ad.should.be.a('function');
     });
 
     it('holds the API instance', function() {
       var api = new FacebookAdsApi(token);
-      var adGroup = new api.AdGroup();
+      var adGroup = new api.Ad();
       adGroup.getApi().should.be.eql(api);
     });
 

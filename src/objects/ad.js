@@ -6,19 +6,19 @@
   ];
   if (typeof define === 'function' && define.amd) define(dependencies, factory);
   else if (typeof exports === 'object') module.exports = factory.apply(factory, dependencies.map(function(d) { return require(d); }));
-  else root.FacebookAdsApi.define('Objects.AdGroup', dependencies, factory);
+  else root.FacebookAdsApi.define('Objects.Ad', dependencies, factory);
 }(this, function(CrudObject, Archivable) {
   'use strict';
 
-  var endpoint = 'adgroups';
+  var endpoint = 'ads';
   var fields = [
     'account_id',
-    'adgroup_review_feedback',
+    'ad_review_feedback',
     'adlabels',
     'bid_amount',
     'bid_info',
     'campaign_group_id',
-    'campaign_id',
+    'adset_id',
     'conversion_specs',
     'created_time',
     'creative',
@@ -27,7 +27,7 @@
     'name',
     'redownload',
     'social_prefs',
-    'adgroup_status',
+    'status',
     'tracking_specs',
     'updated_time',
     'view_tags',
@@ -42,9 +42,9 @@
    * @extends CrudObject
    * @class
    */
-  function AdGroup(api, initData, accountId) {
+  function Ad(api, initData, accountId) {
     var _this = new CrudObject(api, endpoint, fields, initData, accountId);
-    Archivable.call(_this, 'campaign_status');
+    Archivable.call(_this, 'status');
 
     /**
      * @param  {object}   params
@@ -75,8 +75,8 @@
     return _this;
   }
 
-  AdGroup.getEndpoint = function() { return endpoint; };
-  AdGroup.getFields = function() { return fields; };
+  Ad.getEndpoint = function() { return endpoint; };
+  Ad.getFields = function() { return fields; };
 
-  return AdGroup;
+  return Ad;
 }));

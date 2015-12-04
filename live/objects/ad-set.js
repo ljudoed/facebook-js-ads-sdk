@@ -13,7 +13,7 @@ describe('AdSet', function() {
   var setData = {
     bid_info: {'IMPRESSIONS': 50},
     bid_type: 'ABSOLUTE_OCPM',
-    campaign_status: 'PAUSED',
+    status: 'PAUSED',
     daily_budget: 100,
     name: 'SDK TEST AD-SET',
     start_time: 1424363064,
@@ -23,7 +23,7 @@ describe('AdSet', function() {
   };
 
   before(function(done) {
-    adCampaign = new api.AdCampaign(campaignData, testData.accountId);
+    adCampaign = new api.Campaign(campaignData, testData.accountId);
     adCampaign.create().then(function() {
       setData.campaign_group_id = adCampaign.id;
       done();
@@ -110,7 +110,7 @@ describe('AdSet', function() {
     it('gets Ad Groups', function(done) {
       checkSetId(done);
       var adSet = new api.AdSet(setId, testData.accountId);
-      adSet.getAdGroups()
+      adSet.getAds()
         .then(function(data) {
           data.should.be.an('array');
           done();

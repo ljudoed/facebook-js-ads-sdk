@@ -42,11 +42,11 @@ if (typeof define === 'function' && define.amd) {
       './objects/core/collection',
       './objects/ad-user',
       './objects/ad-account',
-      './objects/ad-campaign',
+      './objects/campaign',
       './objects/ad-set',
       './objects/ad-image',
       './objects/ad-creative',
-      './objects/ad-group',
+      './objects/ad',
       './objects/mixins',
     ], function() {
       mocha.run();

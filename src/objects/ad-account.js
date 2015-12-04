@@ -51,7 +51,7 @@
 
   /**
    * Account object for managing ads
-   * @see   {@link}           https://developers.facebook.com/docs/reference/ads-api/adcampaign
+   * @see   {@link}           https://developers.facebook.com/docs/reference/ads-api/ad-account
    * @param {FacebookAdsApi}  api
    * @param {mixed}           [initData]
    * @extends CrudObject
@@ -82,8 +82,8 @@
      * @param  {object}   params
      * @return {promise}
      */
-    _this.getAdCampaigns = function(fields, params) {
-      return _this.getManyByConnection(api.AdCampaign, fields, params);
+    _this.getCampaigns = function(fields, params) {
+      return _this.getManyByConnection(api.Campaign, fields, params);
     };
 
     /**
@@ -100,8 +100,8 @@
      * @param  {object}   params
      * @return {promise}
      */
-    _this.getAdGroups = function(fields, params) {
-      return _this.getManyByConnection(api.AdGroup, fields, params);
+    _this.getAds = function(fields, params) {
+      return _this.getManyByConnection(api.Ad, fields, params);
     };
 
     /**

@@ -17,7 +17,7 @@
    */
   function FacebookAdsApi(token, locale) {
     var _this = {};
-    var version = '2.4';
+    var version = '2.5';
     locale =  locale || 'en_US';
 
     if (!token)

@@ -47,7 +47,7 @@ describe('AdAccount', function() {
 
     it('gets Ad Campaigns', function(done) {
       var adAccount = new api.AdAccount(testData.accountId);
-      adAccount.getAdCampaigns()
+      adAccount.getCampaigns()
         .then(function(data) {
           data.should.be.an('array');
           done();
@@ -67,7 +67,7 @@ describe('AdAccount', function() {
 
     it('gets Ad Groups', function(done) {
       var adAccount = new api.AdAccount(testData.accountId);
-      adAccount.getAdGroups()
+      adAccount.getAds()
         .then(function(data) {
           data.should.be.an('array');
           done();
@@ -127,7 +127,7 @@ describe('AdAccount', function() {
 
     it('gets Ad Group Statistics', function(done) {
       var adAccount = new api.AdAccount(testData.accountId);
-      adAccount.getAdGroupStats()
+      adAccount.getAdStats()
         .then(function(data) {
           data.should.be.an('array');
           done();

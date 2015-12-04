@@ -7,11 +7,11 @@ window.log = console.log.bind(console); // Log wrapper
 var tests = [
   './objects/ad-user',
   './objects/ad-account',
-  './objects/ad-campaign',
+  './objects/campaign',
   './objects/ad-set',
   './objects/ad-image',
   './objects/ad-creative',
-  './objects/ad-group',
+  './objects/ad',
   './objects/ad-conversion-pixel',
   './api',
 ];

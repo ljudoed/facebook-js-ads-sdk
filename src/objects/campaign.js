@@ -7,17 +7,19 @@
   ];
   if (typeof define === 'function' && define.amd) define(dependencies, factory);
   else if (typeof exports === 'object') module.exports = factory.apply(factory, dependencies.map(function(d) { return require(d); }));
-  else root.FacebookAdsApi.define('Objects.AdCampaign', dependencies, factory);
+  else root.FacebookAdsApi.define('Objects.Campaign', dependencies, factory);
 }(this, function(CrudObject, ObjectValidation, Archivable) {
   'use strict';
 
-  var endpoint = 'adcampaign_groups';
+  var endpoint = 'campaigns';
   var fields = [
     'id',
     'account_id',
     'objective',
     'name',
-    'campaign_group_status',
+    'status',
+    'configured_status',
+    'effective_status',
     'buying_type'
   ];
 
@@ -30,10 +32,10 @@
    * @extends CrudObject
    * @class
    */
-  function AdCampaign(api, initData, accountId) {
+  function Campaign(api, initData, accountId) {
     var _this = new CrudObject(api, endpoint, fields, initData, accountId);
     ObjectValidation.call(_this);
-    Archivable.call(_this, 'campaign_group_status');
+    Archivable.call(_this, 'status');
 
     /**
      * @param  {array}    fields
@@ -49,15 +51,15 @@
      * @param  {object}   params
      * @return {promise}
      */
-    _this.getAdGroups = function(fields, params) {
-      return _this.getManyByConnection(api.AdGroup, fields, params);
+    _this.getAds = function(fields, params) {
+      return _this.getManyByConnection(api.Ad, fields, params);
     };
 
     return _this;
   }
 
-  AdCampaign.getEndpoint = function() { return endpoint; };
-  AdCampaign.getFields = function() { return fields; };
+  Campaign.getEndpoint = function() { return endpoint; };
+  Campaign.getFields = function() { return fields; };
 
-  return AdCampaign;
+  return Campaign;
 }));

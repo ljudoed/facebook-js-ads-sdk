@@ -9,7 +9,7 @@ if (typeof require === 'function') {
   var ObjectValidation = FacebookAdsApi.Objects.Mixins.ObjectValidation;
 }
 
-describe('AdCampaign', function() {
+describe('Campaign', function() {
   'use strict';
 
   var token = 'a1b2c3d4e5';
@@ -18,12 +18,12 @@ describe('AdCampaign', function() {
 
     it('exists in API instance', function() {
       var api = new FacebookAdsApi(token);
-      api.AdCampaign.should.be.a('function');
+      api.Campaign.should.be.a('function');
     });
 
     it('holds the API instance', function() {
       var api = new FacebookAdsApi(token);
-      var adCampaign = new api.AdCampaign();
+      var adCampaign = new api.Campaign();
       adCampaign.getApi().should.be.eql(api);
     });
 
@@ -34,7 +34,7 @@ describe('AdCampaign', function() {
     it('ObjectValidation', sinon.test(function() {
       var objectValidationCall = this.stub(ObjectValidation, 'call');
       var api = new FacebookAdsApi(token);
-      new api.AdCampaign();
+      new api.Campaign();
       objectValidationCall.should.have.been.called;
     }));
 

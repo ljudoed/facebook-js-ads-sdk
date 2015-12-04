@@ -4,9 +4,9 @@
   var dependencies = [
     './ad-user',
     './ad-account',
-    './ad-campaign',
+    './campaign',
     './ad-set',
-    './ad-group',
+    './ad',
     './ad-creative',
     './ad-image',
     './ad-preview',
@@ -19,15 +19,15 @@
   else if (typeof exports === 'object') module.exports = factory.apply(factory, dependencies.map(function(d) { return require(d); }));
   else root.FacebookAdsApi.define('Objects.Objects', dependencies, factory);
 
-}(this, function(AdUser, AdAccount, AdCampaign, AdSet, AdGroup, AdCreative, AdImage, AdPreview, Insights, AdConversionPixel, ConnectionObject, ReachEstimate) {
+}(this, function(AdUser, AdAccount, Campaign, AdSet, Ad, AdCreative, AdImage, AdPreview, Insights, AdConversionPixel, ConnectionObject, ReachEstimate) {
   'use strict';
 
   return {
     AdAccount: AdAccount,
     AdUser: AdUser,
-    AdCampaign: AdCampaign,
+    Campaign: Campaign,
     AdSet: AdSet,
-    AdGroup: AdGroup,
+    Ad: Ad,
     AdCreative: AdCreative,
     AdImage: AdImage,
     AdPreview: AdPreview,

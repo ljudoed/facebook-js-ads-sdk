@@ -1,4 +1,4 @@
-describe('AdCampaign', function() {
+describe('Campaign', function() {
   'use strict';
 
   var campaignId;
@@ -6,7 +6,7 @@ describe('AdCampaign', function() {
   var campaignData = {name: 'SDK TEST - ' + now};
 
   it('validates', function(done) {
-    var adCampaign = new api.AdCampaign(campaignData, testData.accountId);
+    var adCampaign = new api.Campaign(campaignData, testData.accountId);
     adCampaign.validate()
       .then(function(data) {
         data.success.should.be.true;
@@ -16,7 +16,7 @@ describe('AdCampaign', function() {
   });
 
   it('creates', function(done) {
-    var adCampaign = new api.AdCampaign(campaignData, testData.accountId);
+    var adCampaign = new api.Campaign(campaignData, testData.accountId);
     adCampaign.create()
       .then(function() {
         if (adCampaign.id.should.be.ok)
@@ -28,7 +28,7 @@ describe('AdCampaign', function() {
 
   it('reads', function(done) {
     checkCampaignId(done);
-    var adCampaign = new api.AdCampaign(campaignId);
+    var adCampaign = new api.Campaign(campaignId);
     adCampaign.read()
       .then(function() {
         adCampaign.name.should.be.ok;
@@ -39,7 +39,7 @@ describe('AdCampaign', function() {
 
   it('updates', function(done) {
     checkCampaignId(done);
-    var adCampaign = new api.AdCampaign(campaignId, testData.accountId);
+    var adCampaign = new api.Campaign(campaignId, testData.accountId);
     var now = (new Date()).toUTCString();
     adCampaign.name = 'SDK TEST [UPDATED] - ' + now;
     adCampaign.update()
@@ -52,7 +52,7 @@ describe('AdCampaign', function() {
 
   it('archives', function(done) {
     checkCampaignId(done);
-    var adCampaign = new api.AdCampaign(campaignId, testData.accountId);
+    var adCampaign = new api.Campaign(campaignId, testData.accountId);
     adCampaign.archive()
       .then(function(data) {
         data.success.should.be.true;
@@ -63,7 +63,7 @@ describe('AdCampaign', function() {
 
   it('deletes', function(done) {
     checkCampaignId(done);
-    var adCampaign = new api.AdCampaign(campaignId, testData.accountId);
+    var adCampaign = new api.Campaign(campaignId, testData.accountId);
     adCampaign.delete()
       .then(function(data) {
         data.success.should.be.true;
@@ -76,7 +76,7 @@ describe('AdCampaign', function() {
 
     it('gets Ad Sets', function(done) {
       checkCampaignId(done);
-      var adCampaign = new api.AdCampaign(campaignId, testData.accountId);
+      var adCampaign = new api.Campaign(campaignId, testData.accountId);
       adCampaign.getAdSets()
         .then(function(data) {
           data.should.be.an('array');
@@ -87,8 +87,8 @@ describe('AdCampaign', function() {
 
     it('gets Ad Groups', function(done) {
       checkCampaignId(done);
-      var adCampaign = new api.AdCampaign(campaignId, testData.accountId);
-      adCampaign.getAdGroups()
+      var adCampaign = new api.Campaign(campaignId, testData.accountId);
+      adCampaign.getAds()
         .then(function(data) {
           data.should.be.an('array');
           done();

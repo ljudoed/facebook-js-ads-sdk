@@ -31,7 +31,7 @@ var myAdAccount = new api.AdAccount('act_XXXXXXXXXXXXXXX');
 ```
 New objects can also be instantiated with a data object to be saved:
 ```javascript
-var myNewCampaign = new api.AdCampaign({name: 'My new campaign'}, 'act_XXXXXXXXXXXXXXX');
+var myNewCampaign = new api.Campaign({name: 'My new campaign'}, 'act_XXXXXXXXXXXXXXX');
 ```
 The object's fields can be accessed and modified as a normal JS object properties:
 ```javascript
@@ -48,7 +48,7 @@ myNewCampaign.create()
 ```
 ##### Read
 ```javascript
-var adCampaign = new api.AdCampaign('12334567890');
+var adCampaign = new api.Campaign('12334567890');
 adCampaign.read()
   .then(function() {
     adCampaign.name; // "My new campaign"

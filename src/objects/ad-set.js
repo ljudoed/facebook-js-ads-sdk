@@ -11,7 +11,7 @@
 }(this, function(CrudObject, ObjectValidation, Archivable) {
   'use strict';
 
-  var endpoint = 'adcampaigns';
+  var endpoint = 'adsets';
   var fields = [
     'account_id',
     'adlabels',
@@ -19,8 +19,8 @@
     'bid_info',
     'billing_event',
     'budget_remaining',
-    'campaign_group_id',
-    'campaign_schedule',
+    'adset_id',
+    'adset_schedule',
     'created_time',
     'creative_sequence',
     'daily_budget',
@@ -37,7 +37,9 @@
     'rf_prediction_id',
     'rtb_flag',
     'start_time',
-    'campaign_status',
+    'status',
+    'configured_status',
+    'effective_status',
     'targeting',
     'updated_time',
   ];
@@ -54,15 +56,15 @@
   function AdSet(api, initData, accountId) {
     var _this = new CrudObject(api, endpoint, fields, initData, accountId);
     ObjectValidation.call(_this);
-    Archivable.call(_this, 'campaign_status');
+    Archivable.call(_this, 'status');
 
     /**
      * @param  {array}    fields
      * @param  {object}   params
      * @return {promise}
      */
-    _this.getAdGroups = function(fields, params) {
-      return _this.getManyByConnection(api.AdGroup, fields, params);
+    _this.getAds = function(fields, params) {
+      return _this.getManyByConnection(api.Ad, fields, params);
     };
 
     /**
