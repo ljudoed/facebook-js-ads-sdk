@@ -17,10 +17,17 @@
     'account_id',
     'objective',
     'name',
-    'status',
+    'is_completed',
+    'buying_type',
+    'promoted_object',
+    'spend_cap',
+    'adlabels',
+    'created_time',
+    'start_time',
+    'stop_time',
+    'updated_time'
     'configured_status',
     'effective_status',
-    'buying_type'
   ];
 
   /**
